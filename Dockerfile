@@ -1,6 +1,5 @@
 from rocker/r-base
 
-run apt-get update
-run apt-get install -t unstable -y libcurl4-openssl-dev
-run apt-get install -t unstable -y libssl-dev
-run R -e "install.packages('devtools')"
+run apt-get update && \
+  apt-get install -y libcurl4-openssl-dev libssl-dev libssh2-1-dev libxml2-dev && \
+  R -e "install.packages(c('devtools', 'testthat', 'roxygen2'))"
